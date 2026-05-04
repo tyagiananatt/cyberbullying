@@ -13,7 +13,8 @@ import re
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
+# CORS(app)
 
 # Configure Gemini API
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"), transport="rest")
